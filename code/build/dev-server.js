@@ -15,38 +15,6 @@ var port = process.env.PORT || config.dev.port
 var proxyTable = config.dev.proxyTable
 
 var app = express()
-
-//读取data.json中的数据
-var appData = require('../data.json');
-var seller = appData.seller;
-var goods = appData.goods;
-var ratings = appData.ratings;
-
-//配置路由接口
-var apiRoutes = express.Router();
-apiRoutes.get('/seller',function(req,res){
-  res.json({
-    errno:0,
-    data:seller
-  });
-});
-
-apiRoutes.get('/goods',function(req,res){
-  res.json({
-    errno:0,
-    data:goods
-  });
-});
-
-apiRoutes.get('/ratings',function(req,res){
-  res.json({
-    errno:0,
-    data:ratings
-  });
-});
-
-app.use('/api',apiRoutes);
-
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {

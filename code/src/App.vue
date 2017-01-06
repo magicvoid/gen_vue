@@ -1,66 +1,95 @@
 <template>
-  <div>
-    <!-- <img src="./components/goods/111.gif" alt=""> -->
-    <v-header :seller="seller"></v-header>
-    <div class="tab border-1px">
-      <div class="tab-item">
-        <router-link to="/goods" class="r_link">商品</router-link>
-      </div>
-      <div class="tab-item">
-        <router-link to="/ratings" class="r_link">评论</router-link>
-      </div>
-      <div class="tab-item">
-        <router-link to="/seller" class="r_link">商家</router-link>
-      </div>
-    </div>
+  <div id="app">
+    
     <router-view></router-view>
+
+    <div class="tab">
+
+      <div class="tab-item">
+        <router-link to="/play">
+          <div class="tab-icon"></div>
+          <p>游玩</p>
+        </router-link>
+      </div>
+
+     <div class="tab-item">
+         <router-link to="/sell">
+          <div class="tab-icon"></div>
+          <p>商城</p>
+        </router-link>
+      </div>
+
+      <div class="tab-item">
+         <router-link to="/me">
+          <div class="tab-icon"></div>
+          <p>我的</p>
+        </router-link>
+      </div>
+
+    </div>
   </div>
+
 </template>
 
 <script>
-import header from './components/header/header'
-import goods from './components/goods/goods'
-
-const ERR_OK = 0
-
-export default{
-  data() {
-    return {
-      seller: {}
-    }
-  },
-  created() {
-    this.$http.get('/api/seller').then((response) => {
-      response = response.body;
-      if(response.errno === ERR_OK){
-        this.seller = response.data
-        console.log(this.seller);
-      }
-    }, (response) => {
-    })
-  },
-  components: {
-    'v-header': header
+export default {
+  methods:{
   }
 }
+
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
-  @import "./common/stylus/mixin.styl"
-  .tab
-    display:flex
-    width:100%
-    height :40px
-    line-height :40px
-    border-1px(rgba(7, 17, 27, 0.1))
-    .tab-item
-      flex :1
-      text-align :center
-      & > a
-        display :block
-        color :rgb(77, 85, 93)
-        font-size :14px
-        font-family :"微软雅黑"
-        &.active
-          color :rgb(240, 20, 20)
+<style>
+.tab{
+  display: -webkit-flex;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  border-top: 1px solid black;
+  position: absolute;
+  bottom: 0px;
+}
+.tab-item{
+  flex: 1;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.router-link-active{
+  color: black;
+  text-decoration: none
+}
+.tab-icon{
+  margin: 0 auto;
+  width:20px;
+  height: 20px;
+}
+.tab-item:nth-child(1) .tab-icon{
+  background: url("../static/images/play.png");
+  background-size: 100%
+}
+.tab-item:nth-child(2) .tab-icon{
+  background: url("../static/images/sell.png");
+  background-size: 100%
+}
+.tab-item:nth-child(3) .tab-icon{
+  background: url("../static/images/mine.png");
+  background-size: 100%
+}
+.tab-item:nth-child(1) .router-link-active .tab-icon{
+  background: url("../static/images/mineActive.png");
+  background-size: 100%
+}
+.tab-item:nth-child(2) .router-link-active .tab-icon{
+  background: url("../static/images/sellActive.png");
+  background-size: 100%
+}
+.tab-item:nth-child(3) .router-link-active .tab-icon{
+  background: url("../static/images/mineActive.png");
+  background-size: 100%
+}
+.tab-item p{
+  margin-top: 2px;
+}
 </style>

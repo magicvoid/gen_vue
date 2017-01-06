@@ -1,25 +1,23 @@
 {
-  "name": "vue-webapp",
+  "name": "my-project",
   "version": "1.0.0",
-  "description": "this is a vue project for web app",
-  "author": "lyl",
+  "description": "A Vue.js project",
+  "author": "Zzuizuo",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src"
+    "build": "node build/build.js"
   },
   "dependencies": {
+    "better-scroll": "^0.1.8",
     "stylus": "^0.54.5",
-    "stylus-loader": "^2.4.0",
-    "vue-router": "^2.1.1",
+    "vue": "^2.1.0",
     "vue-resource": "^1.0.3",
-    "vue": "^2.1.0"
+    "vue-router": "^2.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
     "babel-core": "^6.0.0",
-    "babel-eslint": "^7.0.0",
     "babel-loader": "^6.0.0",
     "babel-plugin-transform-runtime": "^6.0.0",
     "babel-preset-es2015": "^6.0.0",
@@ -28,14 +26,6 @@
     "chalk": "^1.1.3",
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.25.0",
-    "stylus-loader": "^2.1.1",
-    "eslint": "^3.7.1",
-    "eslint-friendly-formatter": "^2.0.5",
-    "eslint-loader": "^1.5.0",
-    "eslint-plugin-html": "^1.3.0",
-    "eslint-config-standard": "^6.1.0",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
